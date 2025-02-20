@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibek Maharjan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .header:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: contain;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #7700ff;
+            transition: width 0.3s ease;
+        }
+
+        .section:hover h2::after {
+            width: 100px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            padding: 8px 15px;
+            background-color: rgba(119, 0, 255, 0.1);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info span:hover {
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #7700ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(119, 0, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            background-color: #6600cc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(119, 0, 255, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #7700ff;
+        }
+
+        a {
+            color: #7700ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #6600cc;
+        }
+
+        .animated-text-wrap {
+            height: 40px;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .roles {
+            display: inline-block;
+            transition: opacity 0.5s, transform 0.5s;
+            color: #7700ff;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 80px auto 0;
+            padding: 20px;
+        }
+
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover img {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #7700ff;
+            background-color: rgba(119, 0, 255, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 30px;
+            /* background-color: rgba(255, 255, 255, 0.95);
+            margin-top: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px); */
+        }
+
+        .footer p {
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#about" class="nav-logo">
+                <img src="assets/logo.png" alt="Bibek Maharjan">
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#teaching" class="nav-link">Teaching</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header" id="about">
+            <img src="assets/bibek1.jpg" alt="Profile Photo" class="profile-img">
+            <h1>Hi, I am <span class="animated-text-wrap">
+                <span class="roles"></span>
+            </span></h1>
+            <div class="contact-info">
+                <span>📧 bmaharj1@kent.edu</span>
+                <span>📍 Kent, OH</span>
+                <span>🔗 <a href="https://www.linkedin.com/in/bibek-maharjan98/">LinkedIn</a></span>
+            </div>
+            <a href="assets/bibek_maharjan_resume.pdf" download class="download-btn">Download Resume</a>
+        </div>
+
+        <div class="section" id="research">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Distributed Computing</li>
+                <li>Graphs and Networks</li>
+                <li>Artificial Intelligence</li>
+            </ul>
+        </div>
+
+        <div class="section" id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>PhD in Computer Science, Kent State university (in-progress)</li>
+            </ul>
+            <ul>
+                <li>Bachelor of Science in Computer Science, Tribhuwan university, 2020</li>
+            </ul>
+        </div>
+        <div class="section"id="teaching">
+            <h2>Teaching</h2>
+            <ul>
+                <li>I teach labs for <a href="labworks/index.html">Computer Science Principles</li></a>
+            </ul>
+            
+        </div>
+
+        <footer class="footer">
+            <p>Copyright © 2025 Bibek Maharjan | All rights reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        const roles = ["Bibek Maharjan", "a Graduate Teaching Assistant", "a Software Developer"];
+        let currentIndex = 0;
+        const roleElement = document.querySelector('.roles');
+
+        function updateRole() {
+            roleElement.style.opacity = 0;
+            roleElement.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                roleElement.textContent = roles[currentIndex];
+                roleElement.style.opacity = 1;
+                roleElement.style.transform = 'translateY(0)';
+                currentIndex = (currentIndex + 1) % roles.length;
+            }, 500);
+        }
+
+        // Set initial text
+        roleElement.textContent = roles[0];
+        roleElement.style.opacity = 1;
+
+        // Change role every 3 seconds
+        setInterval(updateRole, 3000);
+    </script>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
